@@ -6,11 +6,11 @@ Feature: MakeMyTrip Hotel booking
     #---------HomePage------------
 #    When I login to MakeMyTrip portal
     And I select "<NavigationMenu>" navigation menu
-    And I select place "<Place>"
+#    And I select place "<Place>"
 #    And I select CheckIn date "<CheckInDate>" and Checkout date "<CheckOutDate>"
 #    And I select "<RoomCount>" rooms for "<AdultCount>" adults and "<ChildrenCount>" children each
-#    And I select reason for travelling "Leisure"
-#    Then I click on Search button
+    And I select reason for travelling "Leisure"
+    Then I click on Search button
 #    #---------------------------
 #    When I select min price range to "1000" INR
 #    And I select User rating "4 & above"
