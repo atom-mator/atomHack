@@ -27,7 +27,7 @@ public class Browser {
     public static String browserBit = TestProperties.loadProperty().getProperty("browserBit");
     public static String operatingSystem = TestProperties.loadProperty().getProperty("operatingSystem");
     public static String browserName = TestProperties.loadProperty().getProperty("browserName");
-    public static int globalTimeout = Integer.parseInt(TestProperties.loadProperty().getProperty("browser.ExplicitDrvierWait"));
+    public static int globalTimeout = Integer.parseInt(TestProperties.loadProperty().getProperty("browser.ExplicitDriverWait"));
 
     public static void initBrowser() {
         startLocalDriver();

@@ -18,7 +18,6 @@ public class Hooks {
 
     @Before()
     public void beforeTest() {
-
         Browser.initBrowser();
     }
 

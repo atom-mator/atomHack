@@ -9,5 +9,5 @@ import org.openqa.selenium.support.PageFactory;
 public class Page {
     public WebDriver driver = Browser.getBrowserInstance();
     public MmtHomePage mmtHomePage = PageFactory.initElements(driver, MmtHomePage.class);
-
+    public LoginModalPage loginModalPage = PageFactory.initElements(driver, LoginModalPage.class);
 }

@@ -21,7 +21,7 @@
     <browserBit>googlechrome/64bit</browserBit>
     <driver.binaries.path>${project.basedir}/src/test/resources/selenium_standalone_binaries</driver.binaries.path>
     <url>https://www.makemytrip.com</url>
-    <browser.ExplicitDrvierWait>20</browser.ExplicitDrvierWait>
+    <browser.ExplicitDriverWait>20</browser.ExplicitDriverWait>
   </properties>
 
   <dependencies>
