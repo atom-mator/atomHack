@@ -5,16 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class MmtHomePage {
+public class LoginModalPage {
     private final WebDriver driver;
-    public MmtHomePage(WebDriver driver) {
+    public LoginModalPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    @FindBy(how = How.XPATH, using = "//li[@data-cy='account']")
-    public WebElement LoginButton;
+    @FindBy(id = "username")
+    public WebElement UserName;
 
-    public void clickLoginButton() {
-        LoginButton.click();
-    }
 }
