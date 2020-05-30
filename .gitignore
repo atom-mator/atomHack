@@ -1,0 +1,14 @@
+target
+.idea
+.settings
+target
+test-output
+*.iml
+*.project
+*.classpath
+src/test/resources/selenium*
+cucumber_output
+SCAutomationProject.eml
+src/main/resources/test.properties
+.DS_Store
+/debug.log
