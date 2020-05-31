@@ -10,22 +10,23 @@ Pre-requisite:
 Maven, Cucumber plugin, Eclipse/IntelliJ IDE
 
 Open Project:
-Open cloned project in eclipse or Eclipse/IntelliJ IDE
-Our Framework has the capability to run on different browsers (googlechrome, phantomjs, internetexplorer, firefox) and different versions however, we developed and tested it on Windows operating system (64bit) and Google Chrome 83. 
-You can add more browsers and versions by giving driver details in src\main\resources\browserVersions.xml
+- Open cloned project in eclipse or Eclipse/IntelliJ IDE
+- Our Framework has the capability to run on different browsers (googlechrome, phantomjs, internetexplorer, firefox) and different versions however, we developed and tested it on Windows operating system (64bit) and Google Chrome 83. 
+- You can add more browsers and versions by giving driver details in src\main\resources\browserVersions.xml
+- ExecutionReport can be found at 'target/Destination'.
 
 Installation:
 First you need to install driver files for browser for that use following command in command prompt:
-navigate to the folder where you have cloned the repo and give command mvn install .
+navigate to the folder where you have cloned the repo and give command 'mvn clean install' .
 Wait till it download all files and build should be successful without any error.
 
 Running the tests:
-To execute the test open class src\main\java\runner\TestRunner.java and run it as JUnit Test.
+To execute the test open class src\main\java\runner\TestRunner.java and run it as Test.
 
 Built With:
 Java
 Selenium
-TestNG
+JUnit
 Cucumber
 maven-archetype-quickstart template
 
