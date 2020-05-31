@@ -24,10 +24,10 @@ Running the tests:
 To execute the test open class src\main\java\runner\TestRunner.java and run it as Test.
 
 Built With:
-Java
-Selenium
-JUnit
-Cucumber
+Java,
+Selenium,
+JUnit,
+Cucumber,
 maven-archetype-quickstart template
 
 Authors:
