@@ -14,8 +14,8 @@ Feature: MakeMyTrip Hotel booking
     #---------------------------
     When I select min price range to "1000" INR
     And I select User rating "4 & above"
-    And I capture name of "5"th listed hotel from the top
-    And I select "5"th listed hotel from the top
+    And I capture name of "1"th listed hotel from the top
+    And I select "1"th listed hotel from the top
     #---------switch page---------
     And I capture room type of "1"st available room
     When I select "1"st available room
