@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>runner</groupId>
+  <artifactId>atomHack</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>atomHack</name>
+  <!-- FIXME change it to the project's website -->
+  <url>https://www.makemytrip.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <browserName>chromedriver</browserName>
+    <operatingSystem>windows</operatingSystem>
+    <browserBit>googlechrome/64bit</browserBit>
+    <driver.binaries.path>${project.basedir}/src/test/resources/selenium_standalone_binaries</driver.binaries.path>
+    <url>https://www.makemytrip.com</url>
+    <browser.ExplicitDriverWait>20</browser.ExplicitDriverWait>
+  </properties>
+
+  <dependencies>
+    <!-- HTML Parser -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.8.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.javacrumbs.json-unit/json-unit-assertj -->
+    <dependency>
+      <groupId>net.javacrumbs.json-unit</groupId>
+      <artifactId>json-unit-assertj</artifactId>
+      <version>2.16.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180813</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+    <!-- Cucumber libraries used in the framework -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>4.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.14.3</version>
+    </dependency>
+    <!-- Cucumber HTML Reporting -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-html</artifactId>
+      <version>0.2.7</version>
+    </dependency>
+    <!-- Maven Properties management libraries -->
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>properties-maven-plugin</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>2.5.6</version>
+    </dependency>
+    <!-- Selenium libraries -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-api</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-support</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-chrome-driver</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-firefox-driver</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lazerycode.selenium</groupId>
+      <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+      <version>1.0.17</version>
+      <type>maven-plugin</type>
+    </dependency>
+    <!-- log management -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <!--pluginManagement--><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- Download binaries for the browsers -->
+        <plugin>
+          <groupId>com.lazerycode.selenium</groupId>
+          <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+          <version>1.0.17</version>
+          <configuration>
+            <onlyGetDriversForHostOperatingSystem>false</onlyGetDriversForHostOperatingSystem>
+            <operatingSystems>
+              <windows>true</windows>
+              <linux>true</linux>
+              <mac>true</mac>
+            </operatingSystems>
+            <rootStandaloneServerDirectory>${project.basedir}/src/test/resources/selenium_standalone_binaries
+            </rootStandaloneServerDirectory>
+            <downloadedZipFileDirectory>${project.basedir}/src/test/resources/selenium_standalone_zips
+            </downloadedZipFileDirectory>
+            <customRepositoryMap>${project.basedir}/src/main/resources/browserVersions.xml</customRepositoryMap>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>install</phase>
+              <goals>
+                <goal>selenium</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!--Write runtime variables to the property file -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>properties-maven-plugin</artifactId>
+          <version>1.0.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>write-project-properties</goal>
+              </goals>
+              <configuration>
+                <outputFile>
+                  src/main/resources/test.properties
+                </outputFile>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    <!--/pluginManagement-->
+  </build>
+</project>
