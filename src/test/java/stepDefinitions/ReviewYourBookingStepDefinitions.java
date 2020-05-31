@@ -19,7 +19,7 @@ public class ReviewYourBookingStepDefinitions {
         List<Map<String, String>> data = fields.asMaps(String.class, String.class);
         page.reviewYourBookingPage.setFirstName(data.get(0).get("FirstName"));
         page.reviewYourBookingPage.setLastName(data.get(0).get("LastName"));
-        page.reviewYourBookingPage.setEmail(data.get(0).get("Email"));
+//        page.reviewYourBookingPage.setEmail(data.get(0).get("Email"));
         page.reviewYourBookingPage.setMobileNumber(data.get(0).get("PhoneNumber"));
     }
 
