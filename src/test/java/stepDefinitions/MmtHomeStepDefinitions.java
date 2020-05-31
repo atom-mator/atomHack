@@ -39,7 +39,7 @@ public class MmtHomeStepDefinitions {
     }
 
     @And("I select {string} navigation menu")
-    public void iSelectNavigationMenu(String navMenu) {
+    public void iSelectNavigationMenu(String navMenu) throws InterruptedException {
         switch (navMenu.toUpperCase()) {
             case "HOTELS":
                 page.mmtHomePage.clickHotelsNavigationMenu();
@@ -68,5 +68,4 @@ public class MmtHomeStepDefinitions {
     public void iSelectRoomsForAdultsAndChildrenEach(String roomsCnt, String adultCnt, String childrenCnt) {
         page.mmtHomePage.selectRoomsAndGuests(roomsCnt, adultCnt, childrenCnt);
     }
-
 }

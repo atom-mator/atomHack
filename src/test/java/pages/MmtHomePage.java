@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import support.CommonFunctions;
 
+import java.net.ConnectException;
+
 public class MmtHomePage {
     private final WebDriver driver;
 
@@ -58,46 +60,47 @@ public class MmtHomePage {
         CommonFunctions.waitForPageLoad(driver);
     }
 
-    public void clickHotelsNavigationMenu() {
+    public void clickHotelsNavigationMenu() throws InterruptedException {
         CommonFunctions.waitForPageLoad(driver);
-        HotelsBtn.click();
+        CommonFunctions.waitForElementClickable(driver, HotelsBtn);
+        Thread.sleep(6000);
+        CommonFunctions.clickWebElement(driver, HotelsBtn);
         CommonFunctions.waitForPageLoad(driver);
     }
 
     public void selectPlace(String placeName) {
         CommonFunctions.scrollToElement(driver, City);
-        City.click();
+        CommonFunctions.clickWebElement(driver, City);
         CommonFunctions.waitForElementClickable(driver, PlaceInput);
         PlaceInput.sendKeys(placeName);
         CommonFunctions.clickWebElement(driver, PlaceBestSuggestion);
-//        PlaceBestSuggestion.click();
         CommonFunctions.waitForPageLoad(driver);
     }
 
     public void selectTravelFor(String reason) {
         CommonFunctions.waitForPageLoad(driver);
-        TravellingFor.click();
+        CommonFunctions.clickWebElement(driver, TravellingFor);
         CommonFunctions.waitForElementClickable(driver, TravelForPopup);
         WebElement selectThisReason = TravelForPopup.findElement(By.xpath("./li[contains(text(), '" + reason + "')]"));
-        selectThisReason.click();
+        CommonFunctions.clickWebElement(driver, selectThisReason);
         CommonFunctions.waitForPageLoad(driver);
     }
 
     public void clickSearchButton() {
-        SearchBtn.click();
+        CommonFunctions.clickWebElement(driver, SearchBtn);
         CommonFunctions.waitForPageLoad(driver);
     }
 
     public void selectRoomsAndGuests(String roomsCnt, String adultCnt, String childrenCnt) {
         CommonFunctions.waitForPageLoad(driver);
-        Guest.click();
+        CommonFunctions.clickWebElement(driver, Guest);
         CommonFunctions.waitForPageLoad(driver);
 
         WebElement adultCntElement = AdultRange.findElement(By.xpath(".//li[text()='" + adultCnt + "']"));
-        adultCntElement.click();
+        CommonFunctions.clickWebElement(driver, adultCntElement);
 
         WebElement childrenCntElement = ChildrenRange.findElement(By.xpath(".//li[text()='" + childrenCnt + "']"));
-        childrenCntElement.click();
+        CommonFunctions.clickWebElement(driver, childrenCntElement);
 
         for (int i = Integer.parseInt(roomsCnt); i > 1; i--) {
             CommonFunctions.clickWebElement(driver, AddAnotherRoomBtn);

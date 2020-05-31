@@ -13,4 +13,5 @@ public class Page {
     public HotelResultsPage hotelResultPage = PageFactory.initElements(driver, HotelResultsPage.class);
     public HotelDetailsPage hotelDetailsPage = PageFactory.initElements(driver, HotelDetailsPage.class);
     public ReviewYourBookingPage reviewYourBookingPage = PageFactory.initElements(driver, ReviewYourBookingPage.class);
+    public BookingSummaryPage bokingSummaryPage = PageFactory.initElements(driver, BookingSummaryPage.class);
 }

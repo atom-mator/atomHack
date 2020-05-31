@@ -40,9 +40,12 @@ public class HotelResultsPage {
     @FindBy(how = How.XPATH, using = "//div[@class='input-range__slider']")
     public List<WebElement> SliderRange;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='mmBackdrop wholeBlack']")
+    public WebElement PageGrayOut;
+
     public void clickFourAndAbove() {
         CommonFunctions.waitForElementClickable(driver, FourAndAboveLabel);
-//        this.closeMapView();
+        this.closeMapView();
         if (FourAndAboveLabel.findElement(By.xpath(".//parent::span/input[@type='checkbox']")).getAttribute("checked") == null) {
             CommonFunctions.clickWebElement(driver, FourAndAboveLabel);
             CommonFunctions.waitForPageLoad(driver);
@@ -50,11 +53,16 @@ public class HotelResultsPage {
     }
 
     public void closeMapView() {
-        if (driver.findElements(By.xpath("//div//*[contains(text(), 'Explore Hotels on Map')]")).size() != 0) {
+//        if (driver.findElements(By.xpath("//div//*[contains(text(), 'Explore Hotels on Map')]")).size() != 0) {
 //            CommonFunctions.clickWebElement(driver, SelectFilterLabel);
-            SelectFilterLabel.click();
-            SelectFilterLabel.click();
+//            SelectFilterLabel.click();
+//            SelectFilterLabel.click();
+//            CommonFunctions.waitForPageLoad(driver);
+//        }
+        try {
             CommonFunctions.waitForPageLoad(driver);
+            PageGrayOut.click();
+        } catch (Exception e) {
         }
     }
 
@@ -69,12 +77,14 @@ public class HotelResultsPage {
         CommonFunctions.waitForPageLoad(driver);
     }
 
-    public void selectMinimumPriceRange(String minAmount){
-        int maxRange=30000;
-        int difference=maxRange/PriceRangeBlueBar.size();
-        int sliderDiff =Integer.parseInt(minAmount)/difference;
+    public void selectMinimumPriceRange(String minAmount) throws InterruptedException {
+        CommonFunctions.waitForPageLoad(driver);
+        int maxRange = 30000;
+        Thread.sleep(6000);
+        int difference = maxRange / PriceRangeBlueBar.size();
+        int sliderDiff = Integer.parseInt(minAmount) / difference;
 
-        int offset=(int) Math.round(sliderDiff*3.33);
+        int offset = (int) Math.round(sliderDiff * 3.33);
         Actions move = new Actions(driver);
         Action action = (Action) move.dragAndDropBy(SliderRange.get(0), offset, 0).build();
         action.perform();

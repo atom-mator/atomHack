@@ -39,7 +39,7 @@ public class HotelResultStepDefinitions {
     }
 
     @When("I select min price range to {string} INR")
-    public void iSelectMinPriceRangeToINR(String amount) {
+    public void iSelectMinPriceRangeToINR(String amount) throws InterruptedException {
         page.hotelResultPage.selectMinimumPriceRange(amount);
     }
 }
