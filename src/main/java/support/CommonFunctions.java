@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 public class CommonFunctions {
     static final Logger logger = Logger.getLogger(CommonFunctions.class);
 
@@ -79,6 +81,17 @@ public class CommonFunctions {
             js.executeScript("arguments[0].click();", element);
         } catch (Exception e) {
             logger.debug(e.getMessage());
+        }
+    }
+
+    public static void switchToBrowserTab(WebDriver driver, int index) {
+        try {
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(index));
+            Thread.sleep(500);
+            waitForPageLoad(driver);
+        } catch (Exception e) {
+            logger.debug(e);
         }
     }
 }

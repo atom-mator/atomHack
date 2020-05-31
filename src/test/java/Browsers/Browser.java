@@ -31,7 +31,6 @@ public class Browser {
 
     public static void initBrowser() {
         startLocalDriver();
-        System.out.println("Browser created");
         driver.manage().timeouts().implicitlyWait(globalTimeout, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

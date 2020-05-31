@@ -38,6 +38,20 @@ public class MmtHomePage {
     @FindBy(how = How.XPATH, using = "//p//*[contains(text(), 'Search')]")
     public WebElement SearchBtn;
 
+    @FindBy(id = "guest")
+    public WebElement Guest;
+
+    @FindBy(how = How.CSS, using = "ul[class*='guestCounter']:nth-of-type(1)")
+    public WebElement AdultRange;
+
+    @FindBy(how = How.CSS, using = "ul[class*='guestCounter']:nth-of-type(2)")
+    public WebElement ChildrenRange;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(), '+ ADD ANOTHER ROOM')]")
+    public WebElement AddAnotherRoomBtn;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='APPLY']")
+    public WebElement ApplyRoomBtn;
 
     public void clickLoginButton() {
         LoginBtn.click();
@@ -69,8 +83,33 @@ public class MmtHomePage {
         CommonFunctions.waitForPageLoad(driver);
     }
 
-    public void clickSearchButton(){
+    public void clickSearchButton() {
         SearchBtn.click();
         CommonFunctions.waitForPageLoad(driver);
     }
+
+    public void selectRoomsAndGuests(String roomsCnt, String adultCnt, String childrenCnt) {
+        CommonFunctions.waitForPageLoad(driver);
+        Guest.click();
+        CommonFunctions.waitForPageLoad(driver);
+
+        WebElement adultCntElement = AdultRange.findElement(By.xpath(".//li[text()='" + adultCnt + "']"));
+        adultCntElement.click();
+
+        WebElement childrenCntElement = ChildrenRange.findElement(By.xpath(".//li[text()='" + childrenCnt + "']"));
+        childrenCntElement.click();
+
+        for (int i = Integer.parseInt(roomsCnt); i > 1; i--) {
+            CommonFunctions.clickWebElement(driver, AddAnotherRoomBtn);
+            CommonFunctions.waitForPageLoad(driver);
+
+            WebElement adultCntElementTemp = AdultRange.findElement(By.xpath(".//li[text()='" + adultCnt + "']"));
+            CommonFunctions.clickWebElement(driver ,adultCntElementTemp);
+
+            WebElement childrenCntElementTemp = ChildrenRange.findElement(By.xpath(".//li[text()='" + childrenCnt + "']"));
+            CommonFunctions.clickWebElement(driver, childrenCntElementTemp);
+        }
+        CommonFunctions.clickWebElement(driver, ApplyRoomBtn);
+        CommonFunctions.waitForPageLoad(driver);
+}
 }

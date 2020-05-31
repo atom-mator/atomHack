@@ -9,27 +9,27 @@ Feature: MakeMyTrip Hotel booking
 #    And I select place "<Place>"
 #    And I select CheckIn date "<CheckInDate>" and Checkout date "<CheckOutDate>"
 #    And I select "<RoomCount>" rooms for "<AdultCount>" adults and "<ChildrenCount>" children each
-    And I select reason for travelling "Leisure"
+#    And I select reason for travelling "Leisure"
     Then I click on Search button
-#    #---------------------------
-#    When I select min price range to "1000" INR
-#    And I select User rating "4 & above"
-#    And I capture name of "5th" listed hotel from the top
-#    And I select "5th" listed hotel from the top
+##    #---------------------------
+    When I select min price range to "1000" INR
+    And I select User rating "4 & above"
+    And I capture name of "5"th listed hotel from the top
+    And I select "5"th listed hotel from the top
 #    #---------switch page---------
-#    Then I am navigated to rooms section page
-#    And I capture name of "1st" available room
-#    When I select "1st" available room
+    And I capture room type of "1"st available room
+    When I select "1"st available room
 #    #---------------------------------
 #    #may include a verification point
-#    And I fill in traveller's information with below values
-#      | Title | FirstName   | LastName   | Email   | PhoneNumber   |
-#      | Mr    | <FirstName> | <LastName> | <Email> | <PhoneNumber> |
-#    And I select below COMMONLY REQUESTED options
-#      | Smoking room  |
-#      | Late check-in |
-#    And I uncheck Rs 5 to MMT foundation option
-#    When I click "Pay Now" button on review your booking page
+    And I fill in traveller's information with below values
+      | FirstName   | LastName   | Email   | PhoneNumber   |
+      | <FirstName> | <LastName> | <Email> | <PhoneNumber> |
+    And I select below COMMONLY REQUESTED options
+      | SpecialServices |
+      | Smoking room    |
+      | Late check-in   |
+    And I uncheck Rs 5 to MMT foundation option
+    When I click 'Pay Now' button on review your booking page
 #    #----------------------------
 #    Then I verify below information in Booking summary section
 #      | Hotel name      |

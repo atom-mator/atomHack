@@ -5,15 +5,22 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.Page;
 import support.CommonFunctions;
 import support.TestProperties;
 
+import java.util.List;
+
 public class MmtHomeStepDefinitions {
     private WebDriver driver = Browser.getBrowserInstance();
     private Page page = new Page();
+
 
     @Given("^I open MakeMyTrip in browser$")
     public void iOpenMakeMyTripInBrowser() {
@@ -56,4 +63,10 @@ public class MmtHomeStepDefinitions {
     public void iClickOnSearchButton() {
         page.mmtHomePage.clickSearchButton();
     }
+
+    @And("I select {string} rooms for {string} adults and {string} children each")
+    public void iSelectRoomsForAdultsAndChildrenEach(String roomsCnt, String adultCnt, String childrenCnt) {
+        page.mmtHomePage.selectRoomsAndGuests(roomsCnt, adultCnt, childrenCnt);
+    }
+
 }
